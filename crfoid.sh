@@ -1,8 +1,8 @@
 #!/bin/bash
 
-declare -A user_info  # Deklariere ein assoziatives Array
+declare -A user_info  
 
-# LDAP-Suche und Fülle das Array
+
 while IFS= read -r line; do
     if [[ "$line" == mail:* ]]; then
         email=$(echo "$line" | cut -d " " -f2)
@@ -20,7 +20,6 @@ for mail in "${!user_info[@]}"; do
     echo "NAME: $name"
     echo "MAIL: $mail"
 
-    # Überprüfe, ob sowohl E-Mail als auch Name vorhanden sind
     # if [[ -n "$email" && -n "$name" ]]; then
     #     mkdir -p "$uid"
     #     identity_file="$uid/identities"
