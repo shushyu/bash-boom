@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Prüfen, ob ein Parameter übergeben wurde
+if [ $# -ne 1 ]; then
+  echo "Usage: $0 <days>"
+  exit 1
+fi
+
+# Parameter (Anzahl der Tage) speichern
+days=$1
+
+# Datum in der Zukunft berechnen und ausgeben
+date -d "+$days days" +%F
